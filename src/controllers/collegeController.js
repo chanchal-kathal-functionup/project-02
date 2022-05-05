@@ -1,5 +1,5 @@
-const collegeModel=require("../model/collegeModel")
-const internModel=require("../model/internModel")
+const collegeModel=require("../models/collegeModel")
+const internModel=require("../models/internModel")
 
 //validation function 
 const isValid = function(value) {
