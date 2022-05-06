@@ -46,6 +46,12 @@ const createIntern = async function (req,res){
      const checkCollege= await collegeModel.findById(collegeId)
         if(!checkCollege)
             return res.status(404).send({status:false,message:"No college exists with this collegeId"})
+            const body=  {
+              name:name,
+              email:email,
+              mobile:mobile,
+              collegeId:clgId
+              }
     
     const createIntern = await internModel.create(dataFromBody)
       return res.status(201).send({status:true,message:createIntern})
