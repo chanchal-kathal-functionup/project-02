@@ -1,25 +1,27 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+
+///////////////// [ INTERN SCHEMA HERE ] /////////////////
 const collegeSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: "College name is required",
-        unique:true,
-        trim: true
-    },//example: iith
-
-    fullName:{type:String,
-        required:"college fullName is required",
+    name:{
+        type:String,
+        unique:"Abbrivation of colllege should be unique",
+        required:"The abrivvated name of the college is mandatory",
+        trim:true
     },
+    fullName:{
+        type:String,
+        required:"The full name of college is mandatory"
+    },
+    logoLink:{
+        type:String,
+        required:"The logoLink is mandatory"
+    },
+    isDeleted:{
+       type:Boolean,
+       default:false
+    }
 
-      logolink:{
-          type:String,
-           required:"logolink is mandatory"
-      },
+},{timestamps:true})
 
-      isDeleted:{
-          type:Boolean,
-          default:false
-      }
-
-    },{ timestamps: true })
-module.exports = mongoose.model("College", collegeSchema)
+///////////////// [ EXPRORTED AUTHOR MODEL ] /////////////////
+module.exports = mongoose.model("College", collegeSchema) 

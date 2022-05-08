@@ -1,32 +1,33 @@
-const mongoose=require("mongoose")
-const ObjectId =mongoose.Schema.Types.ObjectId
-const internSchema=new mongoose.Schema({
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
+///////////////// [ INTERN SCHEMA HERE ] /////////////////
+const internSchema = new mongoose.Schema({
     name:{
         type:String,
-        require:"the name of intern is required",
-        unique:true
+        required:"The name of the intern is mandatory."
     },
-    email:{type:String,
-        required:"email is required",
-        unique:true,
-        lowercase:true
+    email:{
+        type:String,
+        unique:"The email should be unique.",
+        required:"The email is required."       
     },
-
-    mobile:{type:String,
-        required:"mobile no. is required",
-        unique:true
-
-    },
-    collegeId:{
-        type:ObjectId,
-        ref:"College",
-        require:"College Id is required"
+    mobile:{
+        type:String,
+        unique:"The mobile number should be unique.",
+        required:"The mobile number is required." 
+    }, 
+    collegeId: {
+        type: ObjectId,
+        required: "The college id is required.",
+        ref: ('College')
     },
     isDeleted:{
-        type:Boolean,
-        default:false
+       type:Boolean,
+       default:false
     }
 
 },{timestamps:true})
-module.exports=mongoose.model("Intern", internSchema)
+
+///////////////// [ EXPRORTED AUTHOR MODEL ] /////////////////
+module.exports = mongoose.model("Intern", internSchema)
